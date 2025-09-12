@@ -1,0 +1,36 @@
+name: Deploy nginx to ec2
+on:
+  workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubtunu-latest
+    steps:
+      - name: clone git repo
+        uses: actions/checkout@v4
+      - name: configuring AWS credentials 
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          aws-access-key-id: ${secrets.AWS_ACCESS_KEY_ID}
+          aws-secret-access-key: ${secrets.AWS_SECRET_ACCESS_KEY}
+          aws-region: ${secrets.AWS_REGION}
+
+      - name: copying nginx.conf to s3 bucket
+        run: aws s3 cp nginx.conf s3://homework-1212/nginx/
+
+      - name: Deploy to Ec2 using ssm
+        env:
+          INSTANCE_ID: ${ secrets.EC2_INSTANCE_ID }
+        run: |
+          aws ssm send-command \
+          --instance-ids "${secrets.INSTANCE_ID}
+          --document-name "AWS-RunShellScript" \
+          --comment "deploying default.conf" \
+          --parameters 'commands=[
+            "echo checking.....",
+            "aws s3 nginx.conf s3://homework-1212/nginx/ /etc/nginx/sites-enabled/default.conf",
+            "sudo nginx -t",
+            "sudo systemctl reload nginx",
+            "echo succesfully updated"]'
+          
+        
