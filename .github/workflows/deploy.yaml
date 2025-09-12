@@ -19,11 +19,9 @@ jobs:
         run: aws s3 cp nginx.conf s3://homework-1212/nginx/
 
       - name: Deploy to Ec2 using ssm
-        env:
-          INSTANCE_ID: ${{secrets.EC2_INSTANCE_ID}}
         run: |
           aws ssm send-command \
-          --instance-ids "${{secrets.INSTANCE_ID}}" \
+          --instance-ids "${{secrets.EC2_INSTANCE_ID}}" \
           --document-name "AWS-RunShellScript" \
           --comment "deploying default.conf" \
           --parameters 'commands=[
