@@ -23,7 +23,7 @@ jobs:
           INSTANCE_ID: ${{secrets.EC2_INSTANCE_ID}}
         run: |
           aws ssm send-command \
-          --instance-ids "${{secrets.INSTANCE_ID}}
+          --instance-ids "${{secrets.INSTANCE_ID}}" \
           --document-name "AWS-RunShellScript" \
           --comment "deploying default.conf" \
           --parameters 'commands=[
