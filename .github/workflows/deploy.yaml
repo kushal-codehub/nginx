@@ -26,7 +26,7 @@ jobs:
           --comment "deploying default.conf" \
           --parameters 'commands=[
             "echo checking.....",
-            "aws s3 cp nginx.conf s3://homework-1212/nginx/nginx.conf /etc/nginx/sites-available/default.conf",
+            "aws s3 cp nginx.conf s3://homework-1212/nginx/nginx.conf /etc/nginx/sites-available/default",
             "sudo nginx -t",
             "sudo systemctl reload nginx",
             "echo succesfully updated"]'
