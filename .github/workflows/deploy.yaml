@@ -25,9 +25,10 @@ jobs:
           --document-name "AWS-RunShellScript" \
           --comment "deploying default.conf" \
           --parameters 'commands=[
-            "echo checking.....",
+            "echo updating default nginx conf",
             "sudo aws s3 cp s3://homework-1212/nginx/nginx.conf /etc/nginx/sites-available/default",
             "sudo nginx -t",
+            "echo reloading nginx"
             "sudo systemctl reload nginx",
             "echo succesfully updated"]'
           
