@@ -28,7 +28,5 @@ jobs:
             --parameters 'commands=[
               "echo Updating nginx config...",
               "aws s3 cp s3://homework-1212/nginx/nginx.conf /etc/nginx/sites-available/default",
-              "if sudo nginx -t; then sudo systemctl reload nginx && echo 'Config applied successfully!'; 
-               else echo 'Config test failed! Keeping previous config in memory.'; fi",
               "echo Done.."
             ]'
