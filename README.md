@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Static App with Node.js, Docker, and Nginx</title>
+  #Static App with Node.js, Docker, and Nginx
 </head>
 <body>
 
