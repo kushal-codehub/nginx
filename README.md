@@ -5,7 +5,7 @@
 </head>
 <body>
 
-  <h1>🚀 Static HTML Application with Node.js, Docker, and Nginx</h1>
+  <h1>Static HTML Application with Node.js, Docker, and Nginx</h1>
 
   <p>
     This repository demonstrates how to containerize a Node.js application, run multiple containers, 
