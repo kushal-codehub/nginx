@@ -12,7 +12,7 @@
     and use <strong>Nginx</strong> as a reverse proxy, load balancer, and SSL terminator.
   </p>
 
-  <h2>📌 Steps Implemented</h2>
+  <h2>Steps Implemented</h2>
   <ul>
     <li>Created a <strong>static HTML application</strong>.</li>
     <li>Built a <strong>Node.js backend server</strong> running on <code>port 3000</code>.</li>
@@ -54,7 +54,7 @@
     <li><code>nginx.conf</code> → Nginx configuration for reverse proxy, load balancing, and SSL termination.</li>
   </ul>
 
-  <h2>⚡ How It Works</h2>
+  <h2>How It Works</h2>
   <ol>
     <li>Node.js app is containerized and scaled to multiple containers.</li>
     <li>Nginx sits in front as a proxy and balances requests among containers.</li>
